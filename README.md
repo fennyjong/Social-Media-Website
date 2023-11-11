@@ -10,7 +10,7 @@ kesan baik antar sesama.
 - Database: MongoDB
 
 ## Fitur-Fitur DeepSpace
-dokumentasi fitur-ditur:
+dokumentasi fitur-fitur:
 
 [Laporan_Web_Programming.pdf](https://github.com/fennyjong/Social-Media-Website/files/13326287/Laporan_Web_Programming.pdf)
 
