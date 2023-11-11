@@ -1,0 +1,40 @@
+{
+  "name": "deepspace",
+  "version": "1.0.0",
+  "description": "node express testing",
+  "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "celebrate": "^15.0.1",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.7.2",
+    "nodemailer": "^6.8.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "web3.storage": "^4.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

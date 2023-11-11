@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');</style>
+  <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/myprofile.css">
+  <script src="https://kit.fontawesome.com/9b64058bd2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <title>DeepSpace - My Profile</title>
+  
+</head>
+<body>
+  <header class="primary-header">
+    <div class="container grid navbar">
+      <div class="flex-row align-cen">
+        <a href="/" class="logo">DeepSpace</a>
+      </div>
+      <div class="search-bar">
+        <form class="justify-cen align-cen flex-row" action="/search">
+          <button class="submit-search" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <input class="search" type="search" name="search" placeholder="Searching for something?">
+        </form>
+      </div>
+      <div class="sign-button flex-row justify-end align-cen">
+        <a href="/upload" class="btn signup">+ Upload</a>
+        <div class="profile-button flex justify-end align-cen">
+          <img class="user-profile-pic master h-100" src="<%= user.image %>" id="user1" alt="profile">
+        </div>
+      </div>
+      
+    </div>
+    <div class="profile-menu grid hidden">
+      <a class="pop-up align-cen justify-cen flex" href="/setting/" >
+        Settings
+      </a>
+      <!-- <a class="pop-up align-cen justify-cen flex" href="/setting/">
+        Help
+      </a> -->
+      <a class="pop-up align-cen justify-cen flex" href="/privacypolicy">
+        Privacy Policy
+      </a>
+      <a class="pop-up align-cen justify-cen flex" href="/user/logout" >
+        Logout
+      </a>
+    </div>
+
+  </header>
+  <div class="main">
+    <div class="main-wrapper">
+      <div class="side-container">
+        <div class="side-item-container">
+          <div class="profile-pic-container">
+            <img src="<%= user.image %>" alt="profile" id="profile-pic" class="profile-pic">
+            <div onclick="showEditProfile()" class="edit-profile">
+              <i class="fa fa-pencil fa-4x"></i>
+              <span>Edit Profile</span>
+            </div>
+          </div>
+        </div>
+        <div class="side-item-container">
+          <div class="name-tag">
+            <span class="username" id="name"><%= user.name %></span>
+            <span class="usertag" id="username"><%= user.username %></span>
+          </div>
+        </div>
+        <div class="side-item-container">
+          <div class="bio">
+            <p id="bio"><%= user.bio %></p>
+          </div>
+        </div>
+        <div class="side-item-container">
+          <div class="count-info">
+            <div>
+              <span class="count"><%= user.following.length %></span><span class="infos"> Followings</span>
+            </div>
+            <div>
+              <span class="count"><%= user.followers.length %></span><span class="infos"> Followers</span>
+            </div>
+            <div>
+              <span class="count"><%= likes %></span><span class="infos"> Likes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="contents">
+          <% videos.forEach((video, index) => { %>
+          <div class="thumbnails">
+            <a href="/post/<%= video.id %>">
+            <video loop muted class="content-video">
+              <source src="<%= video.file %>">
+            </a>
+            </video>
+            <div class="caption"><%= video.title %></div>
+          </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div onclick="hideEditProfile()" class="modal hidden pop-in">
+    <form action="/user/editProfile" id="edit-form" method="POST" enctype="multipart/form-data">
+    <div onclick="stopPropagate(event)" class="modal-container">
+      <div class="change-pic-container">
+        <img id="pp" src="<%= user.image %>" alt="profile" class="change-pic">
+        <input type="file" name="myFile" id="profile-image" accept="image/png, image/gif, image/jpeg, image/webp, image/*">
+      </div>
+      <div class="change-details-container">
+        <span class="form-title">Edit Profile</span>
+          <div class="change-name">
+            <label for="name">Name</label>
+            <input name="name" class="change-input" type="text" placeholder="Name" id="name" value="<%= user.name %>" autocomplete="off">
+            <label class="req" for="name">Name should only contains a-z, A-Z, and 0-9.</label>
+          </div>
+          <div class="change-username">
+            <label for="username">Username</label>
+            <input name="username" class="change-input" type="text" placeholder="Username" id="username" value="<%= user.username %>" autocomplete="off">
+            <label class="req" for="username">Username should only contains a-z, A-Z, and 0-9. Underscore can not be used at the start or the end.</label>
+          </div>
+          <div class="change-email">
+            <label for="email">E-mail</label>
+            <input name="email" class="change-input" type="email" placeholder="E-mail" id="email" value="<%= user.email %>" autocomplete="off">
+          </div>
+          <div class="change-bio">
+            <label for="bio">Bio</label>
+            <textarea name="bio" class="change-input" placeholder="Add a bio" id="bio" rows="4" cols="20" maxlength="100"><%= user.bio %></textarea>
+          </div>
+          <input class="change-input" type="submit" value="Save">
+      </div>
+    </div>
+  </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"
+  ></script>
+  <script src="/js/myprofile.js"></script>
+</body>
+</html>
