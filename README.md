@@ -26,9 +26,6 @@ dokumentasi fitur-ditur:
 
 ## Getting Started
 1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/deepspace-explorer.git
-     ```
 2. **npm install**
 3. **npm start**
 4. **Open Your Browser:** http://localhost:9001/ 
