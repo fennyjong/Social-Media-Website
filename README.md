@@ -12,8 +12,11 @@ kesan baik antar sesama.
 ## Fitur-Fitur DeepSpace
 dokumentasi fitur-ditur:
 
+[Laporan_Web_Programming.pdf](https://github.com/fennyjong/Social-Media-Website/files/13326287/Laporan_Web_Programming.pdf)
+
 
 ## Screenshots
+![tampilan awal](https://github.com/fennyjong/Social-Media-Website/assets/89572393/2c8e599e-1b7b-45c5-9abc-c8df41bfb54c)
 
 
 ## Video Demo DeepSpace
