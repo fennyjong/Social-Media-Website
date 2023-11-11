@@ -25,7 +25,7 @@ dokumentasi fitur-ditur:
 ## Link Website
 
 ## Getting Started
-1. **Clone the Repository:**
+1. **Clone the Repository**
 2. **npm install**
 3. **npm start**
 4. **Open Your Browser:** http://localhost:9001/ 
